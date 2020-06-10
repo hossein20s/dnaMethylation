@@ -1,0 +1,12 @@
+torch~=1.5.0
+numpy~=1.18.5
+scikit-learn~=0.23.1
+pymethylprocess~=0.1.6
+matplotlib~=3.2.1
+pandas~=1.0.4
+torchvision~=0.6.0
+click~=6.7
+networkx~=2.4
+dask~=2.18.0
+shap~=0.35.0
+setuptools~=41.2.0
