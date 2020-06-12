@@ -1,3 +1,9 @@
+# Hossein Comments
+
+some scripts are /opt/packages/anaconda3/envs/methylnet/bin
+
+
+
 # MethylNet
 
 Deep Learning with Methylation

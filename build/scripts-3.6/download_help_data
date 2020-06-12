@@ -1,5 +1,0 @@
-#!/bin/bash
-
-wget https://github.com/jlevy44/Datasets/files/3052379/data.zip
-
-unzip data.zip
