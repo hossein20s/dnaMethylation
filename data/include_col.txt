@@ -1,3 +1,3 @@
-gender:ch1       Sex
-tissue:ch1       Tissue
-age:ch1       Age
+gender:ch1	Sex
+tissue:ch1	Tissue
+age:ch1	Age
