@@ -1,1 +1,63 @@
-/home/hossein/Downloads/docker-compose.yml
+version: '3'
+services:
+  desktop: # choose 2560x1440 for display
+    image: hossein20s/nx-desktop
+    container_name: desktop
+    privileged: true
+    ports:
+      - 6080:80
+      - 5900:5900
+      - 6901:6901
+      - 5000:5000
+      - 4000:4000
+      - 8000:8000
+      - 63342:63342 # pycharm built-in server
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - /dev/shm:/dev/shm
+      - my-home:/home/hossein # backup https://drive.google.com/open?id=1pCaM_M6rOsRnvX2OGOh-D5uV6wgpU_i_
+      - apps:/opt/apps
+      - dev:/opt/dev
+      - R-package:/opt/R
+      - src:/opt/lib # stored libraries https://drive.google.com/open?id=1FWmj6HV7-uvN6L8hLnCLnivHy9uovXOA
+      - packages:/opt/packages # https://drive.google.com/open?id=1ee5rr6IxnJd00S7ZAQfC-fkC5Lb8eQX8
+      - pycharm-conf:/opt/pycharm-conf # symbolic link from /home/hossein to .cache .config & .local in this folder https://drive.google.com/open?id=12PRNk7LH3kbWdfyPGvBOWPpBCCxva06m
+      - ~:/opt/host
+      - python:/opt/python # old backup https://drive.google.com/open?id=1bHUamf5qdwkwZeBMaHlWoe4wXS_cjqby
+      - temp:/tmp
+   methyl:
+    image: joshualevy44/pymethylprocess
+    container_name: methyl
+    privileged: true
+    command: tail -f /dev/null
+    volumes:
+      - dev:/opt/dev
+      - R-package:/opt/R
+      - src:/opt/lib # stored libraries https://drive.google.com/open?id=1FWmj6HV7-uvN6L8hLnCLnivHy9uovXOA
+      - packages:/opt/packages # https://drive.google.com/open?id=1ee5rr6IxnJd00S7ZAQfC-fkC5Lb8eQX8
+      - pycharm-conf:/opt/pycharm-conf # symbolic link from /home/hossein to .cache .config & .local in this folder https://drive.google.com/open?id=12PRNk7LH3kbWdfyPGvBOWPpBCCxva06m
+      - ~:/opt/host
+      - python:/opt/python # old backup https://drive.google.com/open?id=1bHUamf5qdwkwZeBMaHlWoe4wXS_cjqby
+volumes:
+  R-package:
+    external: true
+  apps:
+    external: true
+  src:
+    external: true
+  dev:
+    external: true
+  packages:
+    external: true
+  pycharm-conf:
+    external: true
+  mysql:
+    external: true
+  python:
+    external: true
+  my-home:
+    external: true
+  temp:
+    external: true
+
