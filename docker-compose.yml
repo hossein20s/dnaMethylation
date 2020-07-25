@@ -12,19 +12,19 @@ services:
       - 4000:4000
       - 8000:8000
       - 63342:63342 # pycharm built-in server
+    environment:
+      USER: guest
+      PASSWORD: guest
     cap_add:
       - SYS_PTRACE
     volumes:
       - /dev/shm:/dev/shm
-      - my-home:/home/hossein # backup https://drive.google.com/open?id=1pCaM_M6rOsRnvX2OGOh-D5uV6wgpU_i_
       - apps:/opt/apps
       - dev:/opt/dev
       - R-package:/opt/R
-      - src:/opt/lib # stored libraries https://drive.google.com/open?id=1FWmj6HV7-uvN6L8hLnCLnivHy9uovXOA
-      - packages:/opt/packages # https://drive.google.com/open?id=1ee5rr6IxnJd00S7ZAQfC-fkC5Lb8eQX8
-      - pycharm-conf:/opt/pycharm-conf # symbolic link from /home/hossein to .cache .config & .local in this folder https://drive.google.com/open?id=12PRNk7LH3kbWdfyPGvBOWPpBCCxva06m
+      - packages:/opt/packages
       - ~:/opt/host
-      - python:/opt/python # old backup https://drive.google.com/open?id=1bHUamf5qdwkwZeBMaHlWoe4wXS_cjqby
+      - python:/opt/python
       - temp:/tmp
    methyl:
     image: joshualevy44/pymethylprocess
@@ -34,29 +34,23 @@ services:
     volumes:
       - dev:/opt/dev
       - R-package:/opt/R
-      - src:/opt/lib # stored libraries https://drive.google.com/open?id=1FWmj6HV7-uvN6L8hLnCLnivHy9uovXOA
-      - packages:/opt/packages # https://drive.google.com/open?id=1ee5rr6IxnJd00S7ZAQfC-fkC5Lb8eQX8
-      - pycharm-conf:/opt/pycharm-conf # symbolic link from /home/hossein to .cache .config & .local in this folder https://drive.google.com/open?id=12PRNk7LH3kbWdfyPGvBOWPpBCCxva06m
+      - src:/opt/lib
+      - packages:/opt/packages
+      - pycharm-conf:/opt/pycharm-conf
       - ~:/opt/host
-      - python:/opt/python # old backup https://drive.google.com/open?id=1bHUamf5qdwkwZeBMaHlWoe4wXS_cjqby
+      - python:/opt/python
 volumes:
   R-package:
     external: true
   apps:
     external: true
-  src:
-    external: true
   dev:
     external: true
   packages:
     external: true
-  pycharm-conf:
-    external: true
   mysql:
     external: true
   python:
-    external: true
-  my-home:
     external: true
   temp:
     external: true
