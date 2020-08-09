@@ -27,7 +27,7 @@ class MachineLearning:
     """
     def __init__(self, model, options, grid={}, labelencode=False, n_eval=0, series=False, verbose=False):
         if grid:
-            self.model = GridSearch(model = model(), param_grid=grid, num_random_search=None if not n_eval else n_eval, series=series)
+            self.model = GridSearch(model = model(), param_grid=grid)
             self.param_grid_exists=True
             self.grid=grid
         else:
