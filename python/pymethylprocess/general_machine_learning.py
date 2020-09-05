@@ -34,7 +34,7 @@ class MachineLearning:
             self.model=model(**options)
             self.param_grid_exists=False
         if labelencode:
-            self.encoder=LabelEncoder()
+            self.encoder = LabelEncoder()
         else:
             self.encoder=None
         self.verbose = verbose

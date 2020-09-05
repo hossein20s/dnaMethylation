@@ -2,6 +2,9 @@ import click
 import os, copy
 from os.path import join
 import subprocess
+from multiprocessing import Process
+
+from methylnet.embedding import embed
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h','--help'], max_content_width=90)
 
@@ -27,6 +30,9 @@ pymethyl-visualize transform_plot -i predictions/vae_mlp_methyl_arr.pkl -nn 8 -c
 methylnet-predict regression_report
 methylnet-visualize plot_training_curve -t embeddings/training_val_curve.p -vae -o results/embed_training_curve.png -thr 2e8
 methylnet-visualize plot_training_curve -thr 2e6""".format(cuda_str).splitlines()
+    p = Process(target=embed)
+    p.start()
+    p.join()
     for command in commands:
         subprocess.call(command,shell=True)
     print("Check results in embeddings, predictions, visualizations, results.")

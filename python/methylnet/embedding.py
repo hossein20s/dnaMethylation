@@ -13,6 +13,9 @@ CONTEXT_SETTINGS = dict(help_option_names=['-h','--help'], max_content_width=90)
 def embed():
 	pass
 
+# launch_hyperparameter_scan -gpu 0 --hyperparameter_yaml example_embedding_hyperparameter_grid.yaml -sc Age -mc 0.84 -b 1. -g -j 20
+
+
 def embed_vae(train_pkl,output_dir,cuda,n_latent,lr,weight_decay,n_epochs,hidden_layer_encoder_topology, kl_warm_up=0, beta=1., scheduler='null', decay=0.5, t_max=10, eta_min=1e-6, t_mult=2, bce_loss=False, batch_size=50, val_pkl='val_methyl_array.pkl', n_workers=9, convolutional = False, height_kernel_sizes=[], width_kernel_sizes=[], add_validation_set=False, loss_reduction='sum', stratify_column='disease'):
 	from methylnet.models import AutoEncoder, TybaltTitusVAE
 	from methylnet.datasets import get_methylation_dataset
