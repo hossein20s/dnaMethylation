@@ -1,8 +1,0 @@
-[console_scripts]
-methylnet-embed = methylnet.embedding:embed
-methylnet-interpret = methylnet.model_interpretability:interpret
-methylnet-predict = methylnet.predictions:prediction
-methylnet-test = methylnet.test_pipeline:test
-methylnet-torque = methylnet.torque_job_runner:torque
-methylnet-visualize = methylnet.visualizations:visualize
-
